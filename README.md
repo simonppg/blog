@@ -17,6 +17,14 @@ $ php artisan make:migration add_categories_table --create=categories
 $ php artisan migrate
 ```
 
+## Modelos
+
+Los modelos deben tener el mismo nombre de la tabla pero en singular.
+
+```shell
+$ php artisan make:model Category
+```
+
 ## Errores
 
 - No supported encrypter found. The cipher and / or key length are invalid.
