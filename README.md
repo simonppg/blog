@@ -25,6 +25,16 @@ Los modelos deben tener el mismo nombre de la tabla pero en singular.
 $ php artisan make:model Category
 ```
 
+## Tinker
+
+```shell
+>>> $article = new App\Article();
+>>> $article->title = "titulo";
+>>> $article->tags()->attach(1);
+#consultar tabla
+>>> $articles = App\Article::all();
+```
+
 ## Errores
 
 - No supported encrypter found. The cipher and / or key length are invalid.
