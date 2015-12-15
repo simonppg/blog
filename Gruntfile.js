@@ -24,7 +24,7 @@ grunt.initConfig({
 		},
 		js_frontend: {
 			src: [
-				'./bower_components/jquery/jquery.js',
+				'./bower_components/jquery/dist/jquery.js',
 				'./bower_components/bootstrap/dist/js/bootstrap.js',
 				'./resources/assets/javascript/frontend.js'
 			],
@@ -32,7 +32,7 @@ grunt.initConfig({
 		},
 		js_backend: {
 			src: [
-				'./bower_components/jquery/jquery.js',
+				'./bower_components/jquery/dist/jquery.js',
 				'./bower_components/bootstrap/dist/js/bootstrap.js',
 				'./resources/assets/javascript/backend.js'
 			],
@@ -67,7 +67,7 @@ grunt.initConfig({
 		js_frontend: {
 			files: [
 				//watched files
-				'./bower_components/jquery/jquery.js',
+				'./bower_components/jquery/dist/jquery.js',
 				'./bower_components/bootstrap/dist/js/bootstrap.js',
 				'./resources/assets/javascript/frontend.js'
 			],   
@@ -79,7 +79,7 @@ grunt.initConfig({
 		js_backend: {
 			files: [
 				//watched files
-				'./bower_components/jquery/jquery.js',
+				'./bower_components/jquery/dist/jquery.js',
 				'./bower_components/bootstrap/dist/js/bootstrap.js',
 				'./resources/assets/javascript/backend.js'
 			],   
