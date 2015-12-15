@@ -8,6 +8,8 @@ vendor/
 
 ```shell
 $ composer install
+$ npm install
+$ bower install
 ```
 
 ## Migraciones

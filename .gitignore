@@ -19,3 +19,7 @@ composer.phar
 /node_modules
 
 .env
+
+bower_components/
+*~
+public/assets
