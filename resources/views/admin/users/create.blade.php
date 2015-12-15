@@ -2,6 +2,15 @@
 @section('title', 'Crear usuario')
 
 @section('content')
+	@if(count($errors) >0 )
+		<div class="alert alert-danger" role="alert">
+			<ul>
+				@foreach($errors->all() as $error)
+					<li>{{ $error }}</li>
+				@endforeach
+			</ul>
+		</div>
+	@endif
 	create users
 	{!! Form::open(['route' => 'admin.users.store', 'method' => 'POST']) !!}
 		<div class="form-grup">
