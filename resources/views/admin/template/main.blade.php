@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 	<head>
+		<meta charset='UTF-8'>
 		<title>@yield('title', 'Default') | Panel de administración</title>
 		<link rel="stylesheet" href="{{ asset('assets/stylesheets/frontend.css') }}">
 	</head>

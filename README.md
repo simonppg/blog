@@ -27,6 +27,14 @@ Los modelos deben tener el mismo nombre de la tabla pero en singular.
 $ php artisan make:model Category
 ```
 
+## Rutas
+
+Las rutas se listan con el siguiente comando:
+
+```shell
+$ php artisan route:list
+```
+
 ## Tinker
 
 ```shell
