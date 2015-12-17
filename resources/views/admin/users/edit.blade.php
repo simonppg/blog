@@ -5,7 +5,7 @@
 	Editar Usuario
 	{!! Form::open(['route' => ['admin.users.update', $user], 'method' => 'PUT']) !!}
 		<div class="form-grup">
-			{!! Form::label('name', 'nombre')!!}
+			{!! Form::label('name', 'Nombre')!!}
 			{!! Form::text('name', $user->name, ['class' => 'form-control', 'placeholder' => 'nombre completo', 'required'])!!}
 		</div>
 
