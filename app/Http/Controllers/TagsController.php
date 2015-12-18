@@ -6,11 +6,11 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\User;
+use App\Tag;
 use Laracasts\Flash\Flash;
-use App\Http\Requests\UserRequest;
+use App\Http\Requests\TagRequest;
 
-class UsersController extends Controller
+class TagsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,8 +19,8 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users = User::orderBy('id', 'ASC')->paginate(5);
-        return view('admin.users.index')->with('users', $users);
+        $tags = Tag::orderBy('id', 'ASC')->paginate(5);
+        return view('admin.tags.index')->with('tags', $tags);
     }
 
     /**
@@ -30,7 +30,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        return view('admin.users.create');
+        return view('admin.tags.create');
     }
 
     /**
@@ -39,13 +39,12 @@ class UsersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(UserRequest $request)
+    public function store(TagRequest $request)
     {
-        $user = new User($request->all());
-        $user->password = bcrypt($request->password);
-        $user->save();
-        Flash::success("Se ha registrado " . $user->name . " de forma exitosa!");
-        return redirect()->route('admin.users.index');
+        $tag = new Tag($request->all());
+        $tag->save();
+        Flash::success("El tag " . $tag->name . " se ha registrado de forma exitosa!");
+        return redirect()->route('admin.tags.index');
     }
 
     /**
@@ -67,8 +66,8 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        $user = User::find($id);
-        return view('admin.users.edit')->with('user', $user);
+        $tag = Tag::find($id);
+        return view('admin.tags.edit')->with('tag', $tag);
     }
 
     /**
@@ -78,17 +77,14 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UserRequest $request, $id)
+    public function update(TagRequest $request, $id)
     {
-        $user = User::find($id);
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->type = $request->type;
-        $user->password = bcrypt($request->password);
-        $user->save();
+        $tag = Tag::find($id);
+        $tag->name = $request->name;
+        $tag->save();
 
-        Flash::warning("El usuario " . $user->name . " ha sido editado de forma exitosa!");
-        return redirect()->route('admin.users.index');
+        Flash::warning("El tag " . $tag->name . " ha sido editado de forma exitosa!");
+        return redirect()->route('admin.tags.index');
     }
 
     /**
@@ -99,10 +95,10 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        $user = User::find($id);
-        $user->delete();
+        $tag = Tag::find($id);
+        $tag->delete();
 
-        Flash::error("El usuario " . $user->name . " ha sido borrado de forma exitosa!");
-        return redirect()->route('admin.users.index');
+        Flash::error("El tag " . $tag->name . " ha sido borrado de forma exitosa!");
+        return redirect()->route('admin.tags.index');
     }
 }
