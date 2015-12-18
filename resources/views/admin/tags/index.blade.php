@@ -3,6 +3,17 @@
 
 @section('content')
 	<a href="{{ route('admin.tags.create') }}" class="btn btn-info">Registrar nuevo tag</a>
+	<!-- Buscador de Tags -->
+	{!! Form::open([ 'route' => 'admin.tags.index', 'method' => 'GET', 'class' => 'navbar-form pull-right' ]) !!}
+		<div class="input-group">
+		{!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Buscar tag...', 'required'])!!}
+			<span class="input-group-addon" id="search">
+				<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+			</span>
+		</div>
+	{!! Form::close() !!}
+	<!-- Fin de buscador de Tags -->
+	<hr>
 	<table class="table table-striped">
 		<thead>
 			<td>ID</td>
