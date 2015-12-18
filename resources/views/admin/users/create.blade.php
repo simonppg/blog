@@ -19,7 +19,7 @@
 		</div>
 		<div class="form-grup">
 			{!! Form::label('type', 'Tipo')!!}
-			{!! Form::select('type', ['member' => 'Miembro', 'admin' => 'Administrador'], null, ['class' => 'form-control', 'placeholder' => 'Seleccione una opcion ...', 'required'])!!}
+			{!! Form::select('type', ['member' => 'Miembro', 'admin' => 'Administrador'], null, ['class' => 'form-control', 'placeholder' => 'Seleccione una opción ...', 'required'])!!}
 		</div>
 		<div class="form-grup">
 			{!! Form::submit('Registrar', ['class' => 'btn btn-primary'])!!}

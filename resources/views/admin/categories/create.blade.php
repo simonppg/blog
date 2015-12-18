@@ -2,6 +2,7 @@
 @section('title', 'Crear categoría')
 
 @section('content')
+	Crear Categoría
 	{!! Form::open(['route' => 'admin.categories.store', 'method' => 'POST']) !!}
 		<div class="form-grup">
 			{!! Form::label('name', 'Nombre')!!}

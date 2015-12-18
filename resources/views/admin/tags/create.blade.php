@@ -2,7 +2,7 @@
 @section('title', 'Crear tag')
 
 @section('content')
-	Crear tag
+	Crear Tag
 	{!! Form::open(['route' => 'admin.tags.store', 'method' => 'POST']) !!}
 		<div class="form-grup">
 			{!! Form::label('name', 'Nombre')!!}
