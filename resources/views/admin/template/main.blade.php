@@ -15,5 +15,6 @@
 		</section>
 
 		<script src="{{ asset('assets/javascript/frontend.js') }}"></script>
+		@yield('js')
 	</body>
 </html>

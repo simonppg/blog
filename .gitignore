@@ -23,3 +23,4 @@ composer.phar
 bower_components/
 *~
 public/assets
+public/images

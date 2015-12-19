@@ -26,6 +26,7 @@ grunt.initConfig({
 			src: [
 				'./bower_components/jquery/dist/jquery.js',
 				'./bower_components/bootstrap/dist/js/bootstrap.js',
+				'./bower_components/chosen/chosen.jquery.min.js',
 				'./resources/assets/javascript/frontend.js'
 			],
 			dest: './public/assets/javascript/frontend.js',
