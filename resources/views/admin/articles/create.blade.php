@@ -14,7 +14,7 @@
 		</div>
 		<div class="form-grup">
 			{!! Form::label('content', 'Contenido')!!}
-			{!! Form::textarea('content', null, ['class' => 'form-control', 'required'])!!}
+			{!! Form::textarea('content', null, ['class' => 'form-control textarea-content', 'required'])!!}
 		</div>
 		<div class="form-grup">
 			{!! Form::label('tags', 'Tags')!!}
@@ -45,6 +45,12 @@
 		search_contains: true,
 		no_results_text: "Oops, no se encontro!",
 		allow_single_deselect: true
+	});
+
+	$('.textarea-content').trumbowyg({
+		fullscreenable: false,
+		closable: true,
+		btns: ['bold', 'italic', '|', 'insertImage']
 	});
 	</script>
 @endsection

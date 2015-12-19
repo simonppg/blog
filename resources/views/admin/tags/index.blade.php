@@ -26,8 +26,8 @@
 					<td>{!! $tag->id !!}</td>
 					<td>{!! $tag->name !!}</td>					
 					<td>
-						<a href="{{ route('admin.tags.destroy', $tag->id) }}" onclick="return confirm('¿Seguro que deseas eliminarlo?')" class="btn btn-danger"></a>
-						<a href="{{ route('admin.tags.edit', $tag->id) }}" class="btn btn-warning"></a>
+						<a href="{{ route('admin.tags.destroy', $tag->id) }}" onclick="return confirm('¿Seguro que deseas eliminarlo?')" class="btn btn-danger"><span class="glyphicon glyphicon-remove-circle"></span></a>
+						<a href="{{ route('admin.tags.edit', $tag->id) }}" class="btn btn-warning"><span class="glyphicon glyphicon-wrench"></span></a>
 					</td>
 				</tr>
 			@endforeach
