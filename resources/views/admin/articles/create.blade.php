@@ -1,8 +1,8 @@
 @extends('admin.template.main')
-@section('title', 'Crear Articulo')
+@section('title', 'Crear articulo')
 
 @section('content')
-	Crear Article
+	Crear articulo
 	{!! Form::open(['route' => 'admin.articles.store', 'method' => 'POST', 'files' => true]) !!}
 		<div class="form-grup">
 			{!! Form::label('title', 'Titulo')!!}
@@ -18,7 +18,7 @@
 		</div>
 		<div class="form-grup">
 			{!! Form::label('tags', 'Tags')!!}
-			{!! Form::select('tags', $tags, null, ['class' => 'form-control', 'multiple', 'required'])!!}
+			{!! Form::select('tags[]', $tags, null, ['class' => 'form-control', 'multiple', 'required'])!!}
 		</div>
 		<div class="form-grup">
 			{!! Form::label('image', 'Imagen')!!}

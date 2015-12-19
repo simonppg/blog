@@ -8,6 +8,9 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Category;
 use App\Tag;
+use App\Article;
+use App\Image;
+use Laracasts\Flash\Flash;
 
 class ArticlesController extends Controller
 {
@@ -18,7 +21,7 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.articles.index');
     }
 
     /**
@@ -41,12 +44,28 @@ class ArticlesController extends Controller
      */
     public function store(Request $request)
     {
+        $article = new Article($request->all());
+        $article->user_id = \Auth::user()->id;
+        $article->save();
+
+        $article->tags()->sync($request->tags);
+
         //Manipulación de imagenes
-        $file = $request->file('image');
-        $name = 'blog_' . time() . '.' . $file->getClientOriginalExtension();
-        $path = public_path() . '/images/articles/';
-        $file->move($path, $name);
-        dd($path);
+        if($request->file('image'))
+        {
+            $file = $request->file('image');
+            $name = 'blog_' . time() . '.' . $file->getClientOriginalExtension();
+            $path = public_path() . '/images/articles/';
+            $file->move($path, $name);
+
+            $image = new Image();
+            $image->name = $name;
+            $image->article()->associate($article);
+            $image->save();
+        }
+
+        Flash::success("El articulo " . $article->title . " se ha registrado de forma exitosa!");
+        return redirect()->route('admin.articles.index');
     }
 
     /**
