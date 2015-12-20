@@ -2,8 +2,9 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
+use App\User;
 
-class DatabaseSeeder extends Seeder
+class UserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,12 +13,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        Model::unguard();
-        
-        $this->call(UserSeeder::class);
-
-        // $this->call(UserTableSeeder::class);
-
-        Model::reguard();
+	factory(User::class, 50)->create();
     }
 }
