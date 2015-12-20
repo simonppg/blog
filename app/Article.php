@@ -38,4 +38,9 @@ class Article extends Model implements SluggableInterface
     {
         return $this->belongsToMany('App\Tag')->withTimestamps();
     }
+
+    public function scopeSearch($query, $title)
+    {
+        return $query->where('title', 'LIKE', "%$title%");
+    }
 }
