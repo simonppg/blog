@@ -44,6 +44,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'],function ()
 		'uses'	=>	'ArticlesController@destroy',
 		'as'	=>	'admin.articles.destroy'
 	]);
+
+	Route::get('images', [
+		'uses'	=>	'ImagesController@index',
+		'as'	=>	'admin.images.index'
+	]);
 });
 
 Route::get('admin/auth/login', [
