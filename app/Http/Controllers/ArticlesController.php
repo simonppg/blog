@@ -93,7 +93,18 @@ class ArticlesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $article = Article::find($id);
+        $article->category;
+        $categories = Category::orderBy('name', 'DESC')->lists('name', 'id');
+        $tags = Tag::orderBy('name', 'DESC')->lists('name', 'id');
+
+        $my_tags = $article->tags->lists('id')->toArray();
+
+        return view('admin.articles.edit')
+            ->with('categories', $categories)
+            ->with('article', $article)
+            ->with('tags', $tags)
+            ->with('my_tags', $my_tags);
     }
 
     /**
@@ -103,9 +114,16 @@ class ArticlesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ArticleRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        //
+        $article = Article::find($id);
+        $article->fill($request->all());
+        $article->save();
+
+        $article->tags()->sync($request->tags);
+
+        Flash::warning("El articulo " . $article->title . " ha sido editado de forma exitosa!");
+        return redirect()->route('admin.articles.index');
     }
 
     /**
@@ -119,7 +137,7 @@ class ArticlesController extends Controller
         $article = Article::find($id);
         $article->delete();
 
-        Flash::error("El article " . $article->name . " ha sido borrado de forma exitosa!");
+        Flash::error("El articulo " . $article->title . " ha sido borrado de forma exitosa!");
         return redirect()->route('admin.articles.index');
     }
 }
