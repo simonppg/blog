@@ -8,13 +8,14 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#">Inicio</a>
+			<a class="navbar-brand" href="#">Logo</a>
 		</div>
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		@if(Auth::user())
 			<ul class="nav navbar-nav">
+				<li><a href="{{ route('admin.index') }}">Inicio</a></li>
 				<li><a href="{{ route('admin.users.index') }}">Usuarios</a></li>
 				<li><a href="{{ route('admin.categories.index') }}">Categorías</a></li>
 				<li><a href="{{ route('admin.articles.index') }}">Articulos</a></li>
