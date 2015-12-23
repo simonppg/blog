@@ -11,9 +11,14 @@
 |
 */
 
-Route::get('/', ['as' => 'front.index', function () {
-    return view('front.index');
-}]);
+//Rutas del front-end
+
+Route::get('/', [
+	'uses'	=>	'FrontController@index',
+	'as'	=>	'front.index'
+]);
+
+//Rutas del panel de administración
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'],function ()
 {
