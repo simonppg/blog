@@ -43,10 +43,6 @@
 		allow_single_deselect: true
 	});
 
-	$('.textarea-content').trumbowyg({
-		fullscreenable: false,
-		closable: true,
-		btns: ['bold', 'italic', '|', 'insertImage']
-	});
+	$('.textarea-content').trumbowyg();
 	</script>
 @endsection
