@@ -7,9 +7,15 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Article;
+use Carbon\Carbon;
 
 class FrontController extends Controller
 {
+    public function __construct()
+    {
+        Carbon::setLocale('es');
+    }
+
     /**
      * Display a listing of the resource.
      *

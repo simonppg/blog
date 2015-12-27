@@ -26,7 +26,7 @@
 							</div>
 							<div class="panel-footer">
 								<a href="">{{ $article->category->name }}</a>
-								<div class="pull-right">Hace 4 minutos</div>
+								<div class="pull-right">{{ $article->created_at->diffForHumans() }}</div>
 							</div>
 						</div>
 					</div>
